@@ -7,6 +7,13 @@ shutdown and give a 30 seconds countdown before stopping the server. it will the
 when it updates incase something goes wrong. then update the server jar and start the server back up in screen so its in the background.
            
 ## Configuration
+Make sure you have a .bat in your server directory where updater.py is located, called 'Manual_run.bat' with
+
+`@ECHO OFF`
+`java -Xms16384M -Xmx16384M -jar minecraft_server.jar`
+`pause`
+
+### Make sure your server starts with a GUI
 
 ### Latest vs. Snapshot
 UPDATE_TO_SNAPSHOT = <True,False>
@@ -14,8 +21,17 @@ UPDATE_TO_SNAPSHOT = <True,False>
 ### Backup Directory
 BACKUP_DIR = <name of directory to save files>
 
+### Backup Previous jars 
+JARBACKUP_DIR = <name of directory to save files>
+           
 ### Log File
 LOG_FILENAME = <name of file to save log messages>
                 
 ## Scheduling Updates
 This script is intended to be run as a cron job.
+https://www.windowscentral.com/how-create-automated-task-using-task-scheduler-windows-10
+run this script every 5mins for 24hrs using windows task scheduler
+           
+## Updated java
+Make sure your java and java JDK SE is updated, if you're getting server starting errors
+https://www.oracle.com/java/technologies/javase-downloads.html
