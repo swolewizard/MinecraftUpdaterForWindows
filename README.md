@@ -39,6 +39,9 @@ https://www.windowscentral.com/how-create-automated-task-using-task-scheduler-wi
            
 Run this script every 5mins for 24hrs using windows task scheduler
            
+![Capture](https://user-images.githubusercontent.com/46814896/123729648-6fd2d600-d8e9-11eb-8d3d-aeebcfa4a15c.PNG)
+
+           
 ## Updated java
 Make sure your java and java JDK SE is updated, if you're getting server starting errors.
            
