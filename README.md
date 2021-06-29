@@ -7,7 +7,21 @@ your server so there is an extra folder. Then run python update.py in the new fo
 latest version. If not if will download the latest jar, then using screen it will announce to the server that it will
 shutdown and give a 30 seconds countdown before stopping the server. it will then backup your world into a new folder
 when it updates incase something goes wrong. then update the server jar and start the server back up in screen so its in the background.
+
+
+## Scheduling Updates, Get your server updated within 1-5mins of an Minecraft update
            
+This script is intended to be run as a cron job/Task.
+           
+https://www.windowscentral.com/how-create-automated-task-using-task-scheduler-windows-10
+           
+### Begin this script/task At startup, repeat task every 5mins, for a duration of Indefinitely.
+           
+This will update your server automatically when a new minecraft update is realsed within 1-5mins.
+           
+![Capture](https://user-images.githubusercontent.com/46814896/123729648-6fd2d600-d8e9-11eb-8d3d-aeebcfa4a15c.PNG)
+
+
 ## Configuration
 
 ### Latest vs. Snapshot
@@ -36,20 +50,7 @@ LOG_FILENAME = <name of file to save log messages>
 The way this code works is it force closes java.exe to stop the server enabling the cmd prompt to save the world, so you probably can't host a server and play minecraft at the same time on the same computer. Haven't tested that though
 
 ![Minecraft-Server-Setup-GUI](https://user-images.githubusercontent.com/46814896/123729435-14084d00-d8e9-11eb-975e-a602d96b3fe8.png)
-
-           
-           
-## Scheduling Updates, Get your server updated within 1-5mins of an minecraft update
-This script is intended to be run as a cron job.
-           
-https://www.windowscentral.com/how-create-automated-task-using-task-scheduler-windows-10
-           
-Begin this script/task At startup, repeat task every 5mins, for a duration of Indefinitely.
-This will update your server automatically when a new minecraft update is realsed within 1-5mins.
-           
-![Capture](https://user-images.githubusercontent.com/46814896/123729648-6fd2d600-d8e9-11eb-8d3d-aeebcfa4a15c.PNG)
-
-           
+        
 ## Updated java
 Make sure your java and java JDK SE is updated, if you're getting server starting errors.
            
