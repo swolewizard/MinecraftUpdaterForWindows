@@ -31,7 +31,7 @@ LOG_FILENAME = <name of file to save log messages>
 
 `pause`
 
-## Make sure your server starts with a GUI
+## Make sure your server starts with a GUI and console
            
 The way this code works is it force closes java.exe to stop the server enabling the cmd prompt to save the world, so you probably can't host a server and play minecraft at the same time on the same computer. Haven't tested that though
 
