@@ -32,6 +32,8 @@ LOG_FILENAME = <name of file to save log messages>
 `pause`
 
 ## Make sure your server starts with a GUI
+           
+The way this code works is it force closes java.exe to stop the server, so you probably can't host a server and play minecraft at the same time. Haven't tested that though
 
 ![Minecraft-Server-Setup-GUI](https://user-images.githubusercontent.com/46814896/123729435-14084d00-d8e9-11eb-975e-a602d96b3fe8.png)
 
