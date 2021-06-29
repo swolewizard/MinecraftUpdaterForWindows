@@ -17,6 +17,9 @@ Make sure you have a .bat in your server directory where updater.py is located, 
 
 ### Make sure your server starts with a GUI
 
+![Minecraft-Server-Setup-GUI](https://user-images.githubusercontent.com/46814896/123729435-14084d00-d8e9-11eb-975e-a602d96b3fe8.png)
+
+
 ### Latest vs. Snapshot
 UPDATE_TO_SNAPSHOT = <True,False>
 
@@ -34,8 +37,9 @@ This script is intended to be run as a cron job.
            
 https://www.windowscentral.com/how-create-automated-task-using-task-scheduler-windows-10
            
-run this script every 5mins for 24hrs using windows task scheduler
+Run this script every 5mins for 24hrs using windows task scheduler
            
 ## Updated java
-Make sure your java and java JDK SE is updated, if you're getting server starting errors
+Make sure your java and java JDK SE is updated, if you're getting server starting errors.
+           
 https://www.oracle.com/java/technologies/javase-downloads.html
