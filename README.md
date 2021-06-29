@@ -10,7 +10,9 @@ when it updates incase something goes wrong. then update the server jar and star
 Make sure you have a .bat in your server directory where updater.py is located, called 'Manual_run.bat' with
 
 `@ECHO OFF`
+
 `java -Xms16384M -Xmx16384M -jar minecraft_server.jar`
+
 `pause`
 
 ### Make sure your server starts with a GUI
