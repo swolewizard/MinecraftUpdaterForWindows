@@ -1,5 +1,6 @@
 # MinecraftUpdater
 (Updated by swolewizard for windows from eclair4151)
+
 This is a python package to automate the updating of your server. Its so annoying to try and download the jar,
 ftp it over, stop the server, back up your world, etc. This automates alll that. just git clone this in the root of
 your server so there is an extra folder. Then run python update.py in the new folder. it will check if you have the
