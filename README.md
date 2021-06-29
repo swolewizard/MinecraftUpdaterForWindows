@@ -31,7 +31,9 @@ LOG_FILENAME = <name of file to save log messages>
                 
 ## Scheduling Updates
 This script is intended to be run as a cron job.
+           
 https://www.windowscentral.com/how-create-automated-task-using-task-scheduler-windows-10
+           
 run this script every 5mins for 24hrs using windows task scheduler
            
 ## Updated java
