@@ -44,7 +44,7 @@ This script is intended to be run as a cron job.
            
 https://www.windowscentral.com/how-create-automated-task-using-task-scheduler-windows-10
            
-Run this script every 5mins for 24hrs using windows task scheduler
+Run this script on computer startup every 5mins forever, using windows task scheduler to get your server updated within 1-5mins of a minecraft update.
            
 ![Capture](https://user-images.githubusercontent.com/46814896/123729648-6fd2d600-d8e9-11eb-8d3d-aeebcfa4a15c.PNG)
 
