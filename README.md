@@ -15,7 +15,7 @@ https://www.windowscentral.com/how-create-automated-task-using-task-scheduler-wi
            
 ### Begin this script/task At startup, repeat task every 5mins, for a duration of Indefinitely.
            
-This will update your server automatically when a new minecraft update is realsed within 1-5mins.
+This will update your server automatically when a new minecraft update is released within 1-5mins.
            
 ![Capture](https://user-images.githubusercontent.com/46814896/123729648-6fd2d600-d8e9-11eb-8d3d-aeebcfa4a15c.PNG)
            
