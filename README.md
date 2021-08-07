@@ -21,12 +21,13 @@ This will update your server automatically when a new minecraft update is releas
            
 ## Make sure you have a .bat in your server directory where updater.py is located, called 'Manual_run.bat' with
 
-`@ECHO OFF`
+```
+@ECHO OFF
 
-`java -Xms16384M -Xmx16384M -jar minecraft_server.jar`
+java -Xms4096M -Xmx4096M -jar minecraft_server.jar
 
-`pause`
-
+pause
+```
 ## Make sure your server starts with a GUI and console
            
 The way this code works is it force closes java.exe to stop the server enabling the cmd prompt to save the world, so you probably can't host a server and play minecraft at the same time on the same computer. Haven't tested that though
