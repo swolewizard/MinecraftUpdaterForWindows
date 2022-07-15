@@ -30,6 +30,26 @@ if UPDATE_TO_SNAPSHOT:
 else:
     minecraft_ver = data['latest']['release']
 
+if not os.path.exists('eula.txt'):
+    v = open('eula.txt', 'w')
+    v.write('eula=true')
+    v.close()
+    
+if not os.path.exists('Manual_Run.bat'):
+    v = open('Manual_Run.bat', 'w')
+    v.write('@ECHO OFF')
+    v.write('\n')
+    v.write('java -Xms4096M -Xmx4096M -jar minecraft_server.jar')
+    v.write('\n')
+    v.write('pause')
+    v.close()
+
+if not os.path.exists('minecraft_server.jar'):
+    f = open('minecraft_server.jar', 'x')
+    
+if not os.path.exists('world'):
+    os.makedirs('world')
+
 # get checksum of running server
 if os.path.exists('minecraft_server.jar'):
     sha = hashlib.sha1()
@@ -54,16 +74,13 @@ for version in data['versions']:
             logging.info('Your sha1 is ' + cur_ver + '. Latest version is ' + str(minecraft_ver) + " with sha1 of " + jar_sha)
             print('Your sha1 is ' + cur_ver + '. Latest version is ' + str(minecraft_ver) + " with sha1 of " + jar_sha)
             print('==============================================================================')
-            time.sleep(1)
+            
             logging.info('Updating server...')
             print('Updating server...')
-            time.sleep(3)
         
             logging.info('Stopping server.')
             print('Stopping server.')
-            time.sleep(3)
             os.system("TASKKILL /F /IM java.exe")
-            time.sleep(1)
             
             if not os.path.exists(JARBACKUP_DIR):
                 os.makedirs(JARBACKUP_DIR)
@@ -72,18 +89,15 @@ for version in data['versions']:
                 JARBACKUP_DIR,
                 "minecraft_server_sha=" + cur_ver + ".jar")
             shutil.copy("minecraft_server.jar", backupPath2)
-            time.sleep(2)
             
             link = jar_data['downloads']['server']['url']
             logging.info('Downloading minecraft_server.jar from ' + link + '...')
             print('Downloading minecraft_server.jar from ' + link + '...')
             response = requests.get(link)
-            time.sleep(5)
             with open('minecraft_server.jar', 'wb') as jar_file:
                 jar_file.write(response.content)
             logging.info('Downloaded.')
             print('Downloaded.')
-            time.sleep(1)
             
             logging.info('Backing up world...')
             print('Backing up world...')
@@ -96,15 +110,13 @@ for version in data['versions']:
                 "world" + "_backup_" + datetime.now().isoformat().replace(':', '-') + "_sha=" + cur_ver)
             shutil.copytree("world", backupPath)
             
-            time.sleep(1)
             logging.info('Backed up world.')
             print('Backed up world.')
-            time.sleep(1)
             
             logging.info('Starting server...')
             print('Starting server...')
             logging.info('==============================================================================')
-            time.sleep(1)
+            
             os.system('start call Manual_Run.bat')
         else:
             print("Server Isn't running or Server is already up to date.")
