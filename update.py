@@ -10,7 +10,7 @@ import logging
 import requests
 
 # CONFIGURATION
-UPDATE_TO_SNAPSHOT = False
+UPDATE_TO_SNAPSHOT = True
 MANIFEST_URL = "https://launchermeta.mojang.com/mc/game/version_manifest.json"
 BACKUP_DIR = 'world_backups'
 JARBACKUP_DIR = 'previous_jars'
@@ -80,7 +80,8 @@ for version in data['versions']:
         
             logging.info('Stopping server.')
             print('Stopping server.')
-            os.system("TASKKILL /F /IM java.exe")
+            os.system("TASKKILL /IM java.exe")
+            time.sleep(5)
             
             if not os.path.exists(JARBACKUP_DIR):
                 os.makedirs(JARBACKUP_DIR)
