@@ -21,6 +21,16 @@ logging.basicConfig(filename=LOG_FILENAME,level=logging.INFO,format='%(asctime)s
     datefmt='%Y-%m-%d %H:%M:%S',)
 os.chdir(os.path.dirname(os.path.abspath(__file__)))
 
+
+def process_exists(process_name):
+    call = 'TASKLIST', '/FI', 'imagename eq %s' % process_name
+    # use buildin check_output right away
+    output = subprocess.check_output(call).decode()
+    # check in last line for process name
+    last_line = output.strip().split('\r\n')[-1]
+    # because Fail message could be translated
+    return last_line.lower().startswith(process_name.lower())
+
 # retrieve version manifest
 response = requests.get(MANIFEST_URL)
 data = response.json()
@@ -29,7 +39,8 @@ if UPDATE_TO_SNAPSHOT:
     minecraft_ver = data['latest']['snapshot']
 else:
     minecraft_ver = data['latest']['release']
-
+    
+# Create dependency files if they don't exist
 if not os.path.exists('eula.txt'):
     v = open('eula.txt', 'w')
     v.write('eula=true')
@@ -68,21 +79,25 @@ for version in data['versions']:
         
         if cur_ver != jar_sha:
             logging.info('Update Found.')
-            print('==============================================================================')
+            print('='*78)
             print('Update Found.')
             print()
             logging.info('Your sha1 is ' + cur_ver + '. Latest version is ' + str(minecraft_ver) + " with sha1 of " + jar_sha)
             print('Your sha1 is ' + cur_ver + '. Latest version is ' + str(minecraft_ver) + " with sha1 of " + jar_sha)
-            print('==============================================================================')
+            print('='*78)
             
-            logging.info('Updating server...')
-            print('Updating server...')
-        
-            logging.info('Stopping server.')
-            print('Stopping server.')
-            os.system("TASKKILL /IM java.exe")
-            time.sleep(5)
-            
+            if process_exists('java.exe'):
+                logging.info('Updating server...')
+                print('Updating server...')
+                
+                logging.info('Stopping server.')
+                print('Stopping server.')
+                os.system("TASKKILL /IM java.exe")
+                time.sleep(5)
+            else:
+                logging.info("Server isn't running...")
+                print("Server isn't running...")
+                
             if not os.path.exists(JARBACKUP_DIR):
                 os.makedirs(JARBACKUP_DIR)
 
@@ -116,11 +131,11 @@ for version in data['versions']:
             
             logging.info('Starting server...')
             print('Starting server...')
-            logging.info('==============================================================================')
+            logging.info('='*78)
             
             os.system('start call Manual_Run.bat')
         else:
-            print("Server Isn't running or Server is already up to date.")
+            print("Server is already up to date.")
             print('Latest version is ' + str(minecraft_ver))
             time.sleep(5)
         break
